@@ -48,7 +48,7 @@ async def on_message(message):
         target = message.mentions[1]
         if target == client.user:
             target = message.mentions[0]
-        output_message = generate_message(target.id)
+        output_message = target.display_name + ":\n\t" + generate_message(target.id)
     else:
         filtered_message = filter(lambda x: x != client.user, message.mentions)
         target = next(filtered_message, None)
